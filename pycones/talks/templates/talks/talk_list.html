@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>PyConES</title>
+    </head>
+    <body>
+        <h1>PyConES</h1>
+        <ul>
+            {% for talk in talks %}
+            {{ talk.name }}
+            <ul>
+                {% for author in talk.authors.all %}
+                <li>
+                    {{ author.name }} ({{author.python_level}})
+                </li>
+                {%endfor%}
+            </ul>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
