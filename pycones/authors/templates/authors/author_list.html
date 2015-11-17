@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    <h1>PyConES Author List</h1>
+    <div class="row">
+    {% for author in authors %}
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="http://a5.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTIwNjA4NjM0MDU5OTgyMzQ4.jpg" style="width:200px"alt="...">
+                <div class="caption">
+                    <h3>{{ author.name }}</h3>
+                    <span>Python level: {{ author.python_level }}</span>
+                </div>
+            </div>
+        {% if forloop.counter|divisibleby:3 %}
+        </div>
+    <div class="row">
+        {% endif %}
+    </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
