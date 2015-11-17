@@ -1,20 +1,22 @@
-<html>
-    <head>
-        <title>PyConES</title>
-    </head>
-    <body>
-        <h1>PyConES</h1>
-        <ul>
-            {% for talk in talks %}
-            {{ talk.name }}
-            <ul>
-                {% for author in talk.authors.all %}
-                <li>
-                    {{ author.name }} ({{author.python_level}})
-                </li>
-                {%endfor%}
-            </ul>
-            {% endfor %}
-        </ul>
-    </body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<div>
+    <h1>PyConES Talk List</h1>
+    {% for talk in talks %}
+    <div class="media">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" src="http://2014.es.pycon.org/static/img/pythonespana.png" alt="..." style="width:100px">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{ talk.name }}</h4>
+            {{ talk.description }}
+        </div>
+    </div>
+    {% if not forloop.last %}
+    <hr>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

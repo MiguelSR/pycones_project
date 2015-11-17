@@ -16,9 +16,12 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from authors.views import AuthorListView
 from talks.views import TalkListView
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', TalkListView.as_view()),
+    url(r'^$', 'talks.views.home', name='home'),
+    url(r'^talks/?$', TalkListView.as_view(), name="talk_list"),
+    url(r'^authors/?$', AuthorListView.as_view()),
 ]
