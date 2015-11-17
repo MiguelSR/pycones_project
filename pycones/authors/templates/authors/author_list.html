@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <div>
-    <h1>PyConES Author List</h1>
+    <h1>PyConES Author List
+    <a href="/authors/add/" class="btn btn-primary" role="button">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        Add author
+    </a>
+    </h1>
     <div class="row">
     {% for author in authors %}
         <div class="col-sm-6 col-md-4">
@@ -13,12 +18,12 @@
                 </div>
             </div>
         {% if forloop.counter|divisibleby:3 %}
-        </div>
-    <div class="row">
-        {% endif %}
-    </div>
-    {% endfor %}
     </div>
 </div>
+    <div class="row">
+        {% else %}
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>
 {% endblock %}
-

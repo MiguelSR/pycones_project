@@ -6,5 +6,5 @@ from authors.models import Author
 
 class Talk(models.Model):
     name = models.CharField(max_length=256, null=False, blank=False)
-    description = models.CharField(max_length=2048, null=False, blank=False)
+    description = models.TextField(null=False, blank=False)
     authors = models.ManyToManyField(Author) 

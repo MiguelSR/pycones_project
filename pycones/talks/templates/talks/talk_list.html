@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <div>
-    <h1>PyConES Talk List</h1>
+    <h1>PyConES Talk List
+    <a href="/talks/add" class="btn btn-primary" role="button">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        Add talk
+    </a>
+    </h1>
     {% for talk in talks %}
     <div class="media">
         <div class="media-left">
