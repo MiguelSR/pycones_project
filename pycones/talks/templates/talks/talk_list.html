@@ -10,7 +10,7 @@
     {% for talk in talks %}
     <div class="media">
         <div class="media-left">
-            <a href="#">
+            <a href="{% url 'talk_edit' talk.pk %}">
                 <img class="media-object" src="http://2014.es.pycon.org/static/img/pythonespana.png" alt="..." style="width:100px">
             </a>
         </div>

@@ -11,7 +11,9 @@
     {% for author in authors %}
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
+                <a href="{% url 'author_edit' author.pk %}">
                 <img src="http://a5.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTIwNjA4NjM0MDU5OTgyMzQ4.jpg" style="width:200px"alt="...">
+                </a>
                 <div class="caption">
                     <h3>{{ author.name }}</h3>
                     <span>Python level: {{ author.python_level }}</span>

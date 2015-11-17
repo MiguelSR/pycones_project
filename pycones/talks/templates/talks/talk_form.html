@@ -3,6 +3,16 @@
 {% block content %}
 <form action="" method="post">{% csrf_token %}
     {{ form|crispy }}
-    <input type="submit" value="Create" />
+    <input type="submit"
+    
+{% if form.instance.pk %}
+    value="Update"
+{% else %}
+    value="Create"
+{% endif %} />
+
+{% if form.instance.pk %}
+<a href="{% url 'talk_delete' form.instance.pk %}" class="btn btn-danger" role="button">Delete</a>
+{% endif %}
 </form>
 {% endblock %}
