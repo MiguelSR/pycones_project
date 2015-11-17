@@ -32,4 +32,4 @@ class AuthorUpdate(UpdateView):
 class AuthorDelete(DeleteView):
 
     model = Author
-    success_url = '/author/'
+    success_url = '/authors/'
