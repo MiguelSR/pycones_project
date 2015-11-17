@@ -15,13 +15,22 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from tastypie.api import Api
 
+from authors.api import resources_v1 as authors_resources
 from authors.views import AuthorListView
+from talks.api import resources_v1 as talks_resources
 from talks.views import TalkListView
+
+
+v1_api = Api(api_name='v1')
+v1_api.register(talks_resources.TalkResource())
+v1_api.register(authors_resources.AuthorResource())
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'talks.views.home', name='home'),
     url(r'^talks/?$', TalkListView.as_view(), name="talk_list"),
     url(r'^authors/?$', AuthorListView.as_view()),
+    url(r'^api/', include(v1_api.urls)),
 ]
