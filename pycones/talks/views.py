@@ -1,12 +1,12 @@
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
-from django.template import RequestContext, loader
+from django.shortcuts import redirect
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 
 from .models import Talk
 
+
 def home(self):
     return redirect('talk_list')
+
 
 class TalkList(ListView):
 
@@ -30,6 +30,7 @@ class TalkUpdate(UpdateView):
     model = Talk
     fields = ['name', 'description']
     success_url = '/talks/'
+
 
 class TalkDelete(DeleteView):
 

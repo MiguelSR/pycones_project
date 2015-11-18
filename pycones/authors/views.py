@@ -1,9 +1,7 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-from django.template import RequestContext, loader
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from .models import Author
+
 
 class AuthorList(ListView):
 

@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import include, url
+from django.contrib.auth.decorators import login_required
 from django.contrib import admin
 from tastypie.api import Api
 
@@ -21,6 +22,7 @@ from authors.api import resources_v1 as authors_resources
 from authors.views import AuthorList, AuthorCreate, AuthorUpdate, AuthorDelete
 from talks.api import resources_v1 as talks_resources
 from talks.views import TalkList, TalkCreate, TalkUpdate, TalkDelete
+from django.contrib.auth.forms import AuthenticationForm
 
 
 v1_api = Api(api_name='v1')
@@ -31,15 +33,34 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'talks.views.home', name='home'),
 
-    url(r'^talks/?$', TalkList.as_view(), name="talk_list"),
-    url(r'^talks/add/?$', TalkCreate.as_view()),
-    url(r'^talks/(?P<pk>\d+)/?$', TalkUpdate.as_view(), name="talk_edit"),
-    url(r'^talks/(?P<pk>\d+)/delete/?$', TalkDelete.as_view(), name="talk_delete"),
+    url(r'^talks/?$',
+        login_required(TalkList.as_view()),
+        name="talk_list"),
+    url(r'^talks/add/?$',
+        login_required(TalkCreate.as_view())),
+    url(r'^talks/(?P<pk>\d+)/?$',
+        login_required(TalkUpdate.as_view()),
+        name="talk_edit"),
+    url(r'^talks/(?P<pk>\d+)/delete/?$',
+        login_required(TalkDelete.as_view()),
+        name="talk_delete"),
 
-    url(r'^authors/?$', AuthorList.as_view()),
-    url(r'^authors/add/?$', AuthorCreate.as_view()),
-    url(r'^authors/(?P<pk>\d+)/?$', AuthorUpdate.as_view(), name="author_edit"),
-    url(r'^authors/(?P<pk>\d+)/delete/?$', AuthorDelete.as_view(), name="author_delete"),
+    url(r'^authors/?$',
+        login_required(AuthorList.as_view())),
+    url(r'^authors/add/?$',
+        login_required(AuthorCreate.as_view())),
+    url(r'^authors/(?P<pk>\d+)/?$',
+        login_required(AuthorUpdate.as_view()),
+        name="author_edit"),
+    url(r'^authors/(?P<pk>\d+)/delete/?$',
+        login_required(AuthorDelete.as_view()),
+        name="author_delete"),
 
     url(r'^api/', include(v1_api.urls)),
+
+    url(r'^login/$', 'django.contrib.auth.views.login', {
+        'template_name': 'login.html',
+        'authentication_form': AuthenticationForm}, 'login'),
+    url(r'^logout/$', 'django.contrib.auth.views.logout',
+        {'next_page': '/login'}, 'logout'),
 ]
