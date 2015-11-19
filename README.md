@@ -2,7 +2,7 @@
 
 Material para el taller "Single-Page Applications con Django y Backbone" en PyConES Valencia 2015.
 
-En el taller intentaremos replicar una pequeña aplicación Django usando el framework de JavaScript *Backbone* para el front-end y la librería *django-tastypie* para la API REST.
+En el taller intentaremos replicar una pequeña aplicación Django usando la librería de JavaScript *Backbone* para el front-end y *django-tastypie* para la API REST.
 
 ## Requisitos para el taller.
 Se recomienda a todos los asistentes que intenten llevar todo configurado en su propio ordenador de antemano.
