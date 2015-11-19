@@ -1,6 +1,6 @@
 # PyConES-backbone
 
-Material para el taller "Single-Page Applications con Django y Backbone" en PyConES Valencia 2015.
+Material para el taller *Single-Page Applications con Django y Backbone* en PyConES Valencia 2015.
 
 En el taller intentaremos replicar una pequeña aplicación Django usando la librería de JavaScript *Backbone* para el front-end y *django-tastypie* para la API REST.
 
