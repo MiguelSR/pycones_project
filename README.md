@@ -4,6 +4,8 @@ Material para el taller *Single-Page Applications con Django y Backbone* en PyCo
 
 En el taller intentaremos replicar una pequeña aplicación Django usando la librería de JavaScript *Backbone* para el front-end y *django-tastypie* para la API REST.
 
+Hemos creado dos ramas: **master** tiene un ligero *boilerplate* que durante el taller intentaremos *javascriptizar*; **single_page** tiene una versión un poco (muy poco) más avanzada de dicha *javascriptización* para aquel que quiera echar un vistazo.
+
 ## Requisitos para el taller.
 Se recomienda a todos los asistentes que intenten llevar todo configurado en su propio ordenador de antemano.
 
@@ -19,6 +21,9 @@ Se recomienda a todos los asistentes que intenten llevar todo configurado en su 
 
 * TODO
 
+1. git clone http://github.com/MiguelSR/pycones_project
+2. mkvirtualenv pycones_spa
+3. cd pycones_project/ && pip install -r requirements.txt
 <!--
 1º workon pycones (SI)
 2º pip install -r requirements.txt (SI)
