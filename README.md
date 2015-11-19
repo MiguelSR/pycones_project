@@ -23,8 +23,7 @@ Se recomienda a todos los asistentes que intenten llevar todo configurado en su 
 2. `$ mkvirtualenv pycones_spa`
 3. `$ cd pycones_project/ && pip install -r requirements.txt`
 4. `$ cd pycones/ && ./manage.py migrate`
-4. `$ ./manage.py createsuperuser`
-5. `$ ./manage.py runserver`
+5. `$ ./manage.py createsuperuser`
 6. `$ cd static/js && npm install`
 7. `$ bower install`
 8. `$ cd ../.. && ./manage.py runserver`
