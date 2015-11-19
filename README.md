@@ -28,15 +28,3 @@ Se recomienda a todos los asistentes que intenten llevar todo configurado en su 
 6. `$ cd static/js && npm install`
 7. `$ bower install`
 8. `$ cd ../.. && ./manage.py runserver`
-<!--
-1º workon pycones (SI)
-2º pip install -r requirements.txt (SI)
-3º django-admin startproject pycones
-4º cd pycones && ./manage.py syncdb (SI)
-5º ./manage.py startapp talks
-5º ./manage.py startapp authors
-6º editar pycones/settings.py y añadir a INSTALLED APPS nuestro talks
-7º ./manage.py makemigrations
-8º ./manage.py migrate
-9º ./manage.py makemigrations --empty talks
--->
