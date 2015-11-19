@@ -19,11 +19,11 @@ Se recomienda a todos los asistentes que intenten llevar todo configurado en su 
 
 ## Instalación del entorno
 
-* TODO
-
-1. git clone http://github.com/MiguelSR/pycones_project
-2. mkvirtualenv pycones_spa
-3. cd pycones_project/ && pip install -r requirements.txt
+1. `$ git clone http://github.com/MiguelSR/pycones_project`
+2. $ mkvirtualenv pycones_spa
+3. $ cd pycones_project/ && pip install -r requirements.txt
+4. $ cd pycones/ && ./manage.py migrate
+4. $ ./manage.py createsuperuser
 <!--
 1º workon pycones (SI)
 2º pip install -r requirements.txt (SI)
