@@ -1,0 +1,20 @@
+<form action="" method="post">
+    <div id="div_id_name" class="form-group">
+        <label for="id_name" class="control-label  requiredField">
+            Name<span class="asteriskField">*</span>
+        </label>
+        <div class="controls ">
+            <input class="textinput textInput form-control" id="id_name" maxlength="256" name="name" type="text" value="{{name}}" />
+        </div>
+    </div>
+    <div id="div_id_description" class="form-group">
+        <label for="id_description" class="control-label  requiredField">
+            Description<span class="asteriskField">*</span>
+        </label>
+        <div class="controls ">
+            <textarea id="id_description" class="textarea form-control" cols="40" id="id_description" name="description" rows="10">{{description}}</textarea>
+        </div>
+    </div>
+    <input type="submit" {{#if id}}value="Update"{{else}}value="Create"{{/if}} />
+    <a href="talks/{{id}}/delete" class="btn btn-danger" role="button">Delete</a>
+</form>
