@@ -1,6 +1,8 @@
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
+from .forms import AuthorForm
 from .models import Author
+from talks.models import Talk
 
 
 class AuthorList(ListView):
@@ -16,14 +18,14 @@ class AuthorList(ListView):
 class AuthorCreate(CreateView):
 
     model = Author
-    fields = ['name', 'python_level']
+    form_class = AuthorForm
     success_url = '/authors/'
 
 
 class AuthorUpdate(UpdateView):
 
     model = Author
-    fields = ['name', 'python_level']
+    form_class = AuthorForm
     success_url = '/authors/'
 
 

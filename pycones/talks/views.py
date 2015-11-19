@@ -21,14 +21,14 @@ class TalkList(ListView):
 class TalkCreate(CreateView):
 
     model = Talk
-    fields = ['name', 'description']
+    fields = ['name', 'description', 'authors']
     success_url = '/talks/'
 
 
 class TalkUpdate(UpdateView):
 
     model = Talk
-    fields = ['name', 'description']
+    fields = ['name', 'description', 'authors']
     success_url = '/talks/'
 
 
