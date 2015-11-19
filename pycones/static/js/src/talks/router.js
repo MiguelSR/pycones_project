@@ -19,28 +19,28 @@ define([
             "talks/:id": "editTalk",
         },
         loadTalks: function() {
-            var listView = new TalkListView({
+            this.view = new TalkListView({
                 el: this.options.el,
             });
-            listView.loadTalks(); 
+            this.view.loadTalks(); 
         },
         editTalk: function(modelId) {
             var talk = new TalkModel({id: modelId});
 
             talk.fetch().done(function() {
-                var editView = new TalkEditView({
+                this.view = new TalkEditView({
                     el: this.options.el,
                     model: talk
                 });
-                editView.render(); 
+                this.view.render(); 
             }.bind(this));
         },
         createTalk: function() {
-            var editView = new TalkEditView({
+            this.view = new TalkEditView({
                 el: this.options.el,
                 model: new TalkModel()
             });
-            editView.render(); 
+            this.view.render(); 
         }
     });
     return router;
