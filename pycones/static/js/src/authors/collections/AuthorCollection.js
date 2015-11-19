@@ -6,7 +6,7 @@ define([
 
     return Backbone.Collection.extend({
         model: AuthorModel,
-        urlRoot: '/api/v1/author/'
+        url: '/api/v1/author/'
     });
 
 });
