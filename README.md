@@ -26,5 +26,6 @@ Se recomienda a todos los asistentes que intenten llevar todo configurado en su 
 4. `$ cd pycones/ && ./manage.py migrate`
 5. `$ ./manage.py createsuperuser`
 6. `$ cd static/js && npm install`
-7. `$ bower install`
-8. `$ cd ../.. && ./manage.py runserver`
+7. `$ sudo npm install -g bower`
+8. `$ bower install`
+9. `$ cd ../.. && ./manage.py runserver`
