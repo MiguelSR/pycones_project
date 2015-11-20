@@ -1,8 +1,11 @@
 define([
     'backbone',
     'handlebars',
+    'underscore',
+    'authors/collections/AuthorCollection',
     'text!talks/templates/TalkEditTemplate.html'
-], function(Backbone, Handlebars,
+], function(Backbone, Handlebars, _,
+            AuthorCollection,
             talkEditTemplate) {
     "use strict";
 
@@ -17,7 +20,22 @@ define([
             this.model = options.model;
         },
         render: function() {
-            this.$el.html(this.template(this.model.toJSON()));
+            var allAuthors = new AuthorCollection();
+            var self = this;
+
+            allAuthors.fetch().done(function() {
+                var params = {
+                    model: self.model.toJSON(),
+                    allAuthors: allAuthors.map(function(author) {
+                        return _.extend({
+                            'selected': _.contains(self.model.get('authors'),
+                                                   author.get('resource_uri'))
+                        }, author.toJSON());
+                    })
+                };
+
+                self.$el.html(self.template(params));
+            });
             return this;
         },
         onSubmitForm: function(e) {
@@ -25,6 +43,7 @@ define([
             var target = $(e.target);
             this.model.set('description', target.find('#id_description').val());
             this.model.set('name', target.find('#id_name').val());
+            this.model.set('authors', target.find('#id_authors').val());
             this.model.save().done(this.backToList.bind(this));
         },
         onDeleteClick: function(e) {

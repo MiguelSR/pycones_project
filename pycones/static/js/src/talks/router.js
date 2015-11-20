@@ -8,22 +8,25 @@ define([
             TalkEditView,
             TalkListView) {
     "use strict";
-    var router = Backbone.Router.extend({
+    return Backbone.Router.extend({
 
         initialize: function(options) {
             this.options = options;
         },
+
         routes: {
             "(talks)(/)": "loadTalks",
             "talks/add(/)": "createTalk",
             "talks/:id": "editTalk",
         },
+
         loadTalks: function() {
             this.view = new TalkListView({
                 el: this.options.el,
             });
             this.view.loadTalks(); 
         },
+
         editTalk: function(modelId) {
             var talk = new TalkModel({id: modelId});
 
@@ -35,6 +38,7 @@ define([
                 this.view.render(); 
             }.bind(this));
         },
+
         createTalk: function() {
             this.view = new TalkEditView({
                 el: this.options.el,
@@ -43,5 +47,4 @@ define([
             this.view.render(); 
         }
     });
-    return router;
 });

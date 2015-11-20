@@ -4,8 +4,9 @@ define([
     'bootstrap',
     'jquery',
     'talks/router',
+    'authors/router',
 ], function(Backbone, __backbone_tastypie, __boostrap, $,
-            Router) {
+            TalkRouter, AuthorRouter) {
     "use strict";
 
     function getCookie(name) {
@@ -42,12 +43,16 @@ define([
 
     return {
         initialize: function() {
-            new Router({
-                el: '#main_container'
+            new TalkRouter({
+                el: '#main_container',
+            });
+            new AuthorRouter({
+                el: '#main_container',
             });
             Backbone.history.start({pushState:true});
             
             $('body').on('click', 'a', function(e) {
+                if ($(this).attr('href').split('/')[1] === 'authors') return;
                 e.preventDefault();
                 var href = $(this).attr('href');
                 Backbone.history.navigate(href, true);

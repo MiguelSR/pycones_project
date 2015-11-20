@@ -4,7 +4,7 @@
             Name<span class="asteriskField">*</span>
         </label>
         <div class="controls ">
-            <input class="textinput textInput form-control" id="id_name" maxlength="256" name="name" type="text" value="{{name}}" />
+            <input class="textinput textInput form-control" id="id_name" maxlength="256" name="name" type="text" value="{{model.name}}" />
         </div>
     </div>
     <div id="div_id_description" class="form-group">
@@ -12,8 +12,15 @@
             Description<span class="asteriskField">*</span>
         </label>
         <div class="controls ">
-            <textarea id="id_description" class="textarea form-control" cols="40" id="id_description" name="description" rows="10">{{description}}</textarea>
+            <textarea id="id_description" class="textarea form-control" cols="40" id="id_description" name="description" rows="10">{{model.description}}</textarea>
         </div>
+    </div>
+    <div id="div_id_authors" class="form-group">
+        <select multiple id="id_authors">
+            {{#each allAuthors}}
+                <option value="{{resource_uri}}" {{#if selected}}selected{{/if}}>{{name}}</option>
+            {{/each}}
+        </select>
     </div>
     <input type="submit" {{#if id}}value="Update"{{else}}value="Create"{{/if}} />
     <a href="talks/{{id}}/delete" class="delete btn btn-danger" role="button">Delete</a>
