@@ -9,13 +9,15 @@ Hemos creado dos ramas: **master** tiene un ligero *boilerplate* que durante el 
 ## Requisitos para el taller.
 Se recomienda a todos los asistentes que intenten llevar todo configurado en su propio ordenador de antemano.
 
-* GNU/Linux (recomendado)
 * Python 2.7+ (https://www.python.org/downloads/)
+* git (https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * Pip (http://pip.readthedocs.org/en/stable/installing/)
-* Virtualenvwrapper (sudo pip install virtualenvwrapper)
+* Virtualenvwrapper (https://virtualenvwrapper.readthedocs.org/en/latest/)
 * SQLite (recomendado) o Postgresql (http://www.postgresql.org/download/)
+* Postgresql (http://www.postgresql.org/download/)
 * nodejs (https://nodejs.org/en/download/)
 * npm (https://docs.npmjs.com/getting-started/installing-node)
+
 
 ## Instalación del entorno
 
