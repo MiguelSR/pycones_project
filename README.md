@@ -14,7 +14,6 @@ Se recomienda a todos los asistentes que intenten llevar todo configurado en su 
 * Pip (http://pip.readthedocs.org/en/stable/installing/)
 * Virtualenvwrapper (https://virtualenvwrapper.readthedocs.org/en/latest/)
 * SQLite (recomendado) o Postgresql (http://www.postgresql.org/download/)
-* Postgresql (http://www.postgresql.org/download/)
 * nodejs (https://nodejs.org/en/download/)
 * npm (https://docs.npmjs.com/getting-started/installing-node)
 
